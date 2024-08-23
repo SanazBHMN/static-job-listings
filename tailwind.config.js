@@ -13,6 +13,10 @@ export default {
         text: "hsl(180, 8%, 52%)",
         darkText: "hsl(180, 14%, 20%)",
       },
+      backgroundImage: {
+        headerMobile: "url(./src/assets/images/bg-header-mobile.svg)",
+        headerDesktop: "url(./src/assets/images/bg-header-desktop.svg)",
+      },
     },
   },
   plugins: [],
