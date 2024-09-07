@@ -1,10 +1,10 @@
+import Logo from "./Logo";
+
 function JobCard({ job }) {
   return (
     <div className="w-11/12 m-auto bg-white rounded-md my-12 shadow-2xl shadow-filterTablets sm:w-10/12 sm:my-6">
       <section className="p-6 relative md:static md:flex md:items-center gap-5">
-        <div className="w-14 h-14 absolute top-[-30px] md:static md:w-16 md:h-16">
-          <img src={job.logo} alt="logo" />
-        </div>
+        <Logo logo={job.logo} />
         <div className="mt-4 md:w-full">
           <div className="flex justify-start items-center gap-6">
             <h3 className="text-primary font-bold">{job.company}</h3>

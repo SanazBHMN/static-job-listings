@@ -1,8 +1,24 @@
 import { useState } from "react";
-import "./App.css";
 import JobCard from "./components/JobCard";
-
+import "./App.css";
 import data from "./data.json";
+
+
+interface Job {
+  id: Number;
+  company: String;
+  logo: String;
+  new: Boolean;
+  featured: Boolean;
+  position: String;
+  role: String;
+  level: String;
+  postedAt: String;
+  contract: String;
+  location: String;
+  languages: String[];
+  tools: String[];
+}
 
 function App() {
   const [jobs, setJobs] = useState(data);
