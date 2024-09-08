@@ -1,6 +1,26 @@
 import Logo from "./Logo";
+import Tablet from "./Tablet";
+import Tag from "./Tag";
 
-function JobCard({ job }) {
+interface JobCardProps {
+  job: {
+    id: number;
+    company: string;
+    logo: string;
+    new: boolean;
+    featured: boolean;
+    position: string;
+    role: string;
+    level: string;
+    postedAt: string;
+    contract: string;
+    location: string;
+    languages: string[];
+    tools: string[];
+  };
+}
+
+function JobCard({ job }: JobCardProps) {
   return (
     <div className="w-11/12 m-auto bg-white rounded-md my-12 shadow-2xl shadow-filterTablets sm:w-10/12 sm:my-6">
       <section className="p-6 relative md:static md:flex md:items-center gap-5">
@@ -9,16 +29,7 @@ function JobCard({ job }) {
           <div className="flex justify-start items-center gap-6">
             <h3 className="text-primary font-bold">{job.company}</h3>
             <div className="flex gap-4">
-              {job.new && (
-                <p className="w-full h-full bg-primary px-3 pt-1 text-white rounded-full">
-                  NEW!
-                </p>
-              )}
-              {job.featured && (
-                <p className="w-full h-full bg-darkText px-3 pt-1 text-white rounded-full">
-                  FEATURED
-                </p>
-              )}
+              <Tag tags={{ newTag: job.new, featuredTag: job.featured }} />
             </div>
           </div>
           <div className="flex flex-col items-start sm:flex-row sm:justify-between text-text">
@@ -31,27 +42,13 @@ function JobCard({ job }) {
               <span className="ml-2">{job.location}</span>
             </div>
             <ul className="flex flex-wrap gap-4 mt-1 sm:flex-nowrap">
-              <li className="bg-filterTablets px-3 pt-1 text-primary rounded-sm">
-                {job.role}
-              </li>
-              <li className="bg-filterTablets px-3 pt-1 text-primary rounded-sm">
-                {job.level}
-              </li>
-              {job.languages.map((language) => (
-                <li
-                  key={language}
-                  className="bg-filterTablets px-3 pt-1 text-primary rounded-sm"
-                >
-                  {language}
-                </li>
+              <Tablet text={job.role} />
+              <Tablet text={job.level} />
+              {job.languages.map((language: string) => (
+                <Tablet key={language} text={language} />
               ))}
-              {job.tools.map((tool) => (
-                <li
-                  key={tool}
-                  className="bg-filterTablets px-3 pt-1 text-primary rounded-sm"
-                >
-                  {tool}
-                </li>
+              {job.tools.map((tool: string) => (
+                <Tablet key={tool} text={tool} />
               ))}
             </ul>
           </div>

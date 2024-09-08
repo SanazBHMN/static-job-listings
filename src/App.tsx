@@ -3,7 +3,6 @@ import JobCard from "./components/JobCard";
 import "./App.css";
 import data from "./data.json";
 
-
 interface Job {
   id: Number;
   company: String;
@@ -30,7 +29,7 @@ function App() {
       </header>
       <main className="sm:mt-20 h-full">
         {jobs.map((job) => (
-          <JobCard job={job} />
+          <JobCard key={job.id} job={job} />
         ))}
       </main>
     </div>
