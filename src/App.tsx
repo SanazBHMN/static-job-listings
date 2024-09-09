@@ -5,6 +5,7 @@ import SearchInput from "./components/SearchInput";
 
 import "./App.css";
 import data from "./data.json";
+import Header from "./components/Header";
 
 function App() {
   const [jobs, setJobs] = useState(data);
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <div className="bg-backgroud">
-      <header className="bg-primary h-36 bg-headerMobile bg-repeat-x sm:bg-headerDesktop"></header>
+      <Header />
       <main className="w-11/12 m-auto sm:mt-20 h-full relative">
         {showInput && (
           <SearchInput
