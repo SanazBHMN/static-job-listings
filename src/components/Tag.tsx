@@ -1,4 +1,6 @@
-function Tag({ tags }) {
+function Tag({ tags
+  
+ }) {
   const { newTag, featuredTag } = tags;
   return (
     <>

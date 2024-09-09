@@ -18,11 +18,13 @@ interface JobCardProps {
     languages: string[];
     tools: string[];
   };
+  handleShowInput: () => void;
+  handleInputOptions: (text: string) => void;
 }
 
-function JobCard({ job }: JobCardProps) {
+function JobCard({ job, handleShowInput, handleInputOptions }: JobCardProps) {
   return (
-    <div className="w-11/12 m-auto bg-white rounded-md my-12 shadow-2xl shadow-filterTablets sm:w-10/12 sm:my-6">
+    <div className="w-full bg-white rounded-md my-12 shadow-2xl shadow-filterTablets">
       <section className="p-6 relative md:static md:flex md:items-center gap-5">
         <Logo logo={job.logo} />
         <div className="mt-4 md:w-full">
@@ -42,13 +44,31 @@ function JobCard({ job }: JobCardProps) {
               <span className="ml-2">{job.location}</span>
             </div>
             <ul className="flex flex-wrap gap-4 mt-1 sm:flex-nowrap">
-              <Tablet text={job.role} />
-              <Tablet text={job.level} />
+              <Tablet
+                text={job.role}
+                handleShowInput={handleShowInput}
+                handleInputOptions={handleInputOptions}
+              />
+              <Tablet
+                text={job.level}
+                handleShowInput={handleShowInput}
+                handleInputOptions={handleInputOptions}
+              />
               {job.languages.map((language: string) => (
-                <Tablet key={language} text={language} />
+                <Tablet
+                  key={language}
+                  text={language}
+                  handleShowInput={handleShowInput}
+                  handleInputOptions={handleInputOptions}
+                />
               ))}
               {job.tools.map((tool: string) => (
-                <Tablet key={tool} text={tool} />
+                <Tablet
+                  key={tool}
+                  text={tool}
+                  handleShowInput={handleShowInput}
+                  handleInputOptions={handleInputOptions}
+                />
               ))}
             </ul>
           </div>
