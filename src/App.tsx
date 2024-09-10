@@ -20,7 +20,6 @@ function App() {
 
   // Add input options when a Tablet is clicked
   const handleInputOptions = (option: string) => {
-    // const inputValues: string[] = [...inputOptions, option];
     const inputValues: string[] = !inputOptions.includes(option)
       ? [...inputOptions, option]
       : [...inputOptions];
@@ -57,9 +56,9 @@ function App() {
   }, [inputOptions, jobs]);
 
   return (
-    <div className="bg-backgroud">
+    <div className="bg-backgroud min-h-screen">
       <Header />
-      <main className="w-11/12 m-auto sm:mt-20 h-full relative">
+      <main className="w-11/12 m-auto sm:mt-20">
         {showInput && (
           <SearchInput
             inputOptions={inputOptions}
@@ -71,7 +70,6 @@ function App() {
           <JobCard
             key={job.id}
             job={job}
-            showInput={showInput}
             handleShowInput={handleShowInput}
             handleInputOptions={handleInputOptions}
           />

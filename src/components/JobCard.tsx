@@ -18,17 +18,11 @@ interface JobCardProps {
     languages: string[];
     tools: string[];
   };
-  showInput: boolean;
   handleShowInput: () => void;
   handleInputOptions: (text: string) => void;
 }
 
-function JobCard({
-  job,
-  showInput,
-  handleShowInput,
-  handleInputOptions,
-}: JobCardProps) {
+function JobCard({ job, handleShowInput, handleInputOptions }: JobCardProps) {
   return (
     <div className="w-full bg-white rounded-md my-12 shadow-2xl shadow-filterTablets">
       <section className="p-6 relative md:static md:flex md:items-center gap-5">

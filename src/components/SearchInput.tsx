@@ -12,7 +12,7 @@ function SearchInput({
   handleRemoveOption,
 }: SearchInputProps) {
   return (
-    <div className="flex items-center bg-white shadow-md rounded-md p-4 w-full absolute top-[-80px]">
+    <div className="flex items-center bg-white shadow-md rounded-md p-4 w-full -mt-8 sm:-mt-28">
       <div className="flex flex-wrap gap-2">
         {inputOptions.map((option, index) => (
           <SearchOption
