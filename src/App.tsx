@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import JobCard from "./components/JobCard";
 import SearchInput from "./components/SearchInput";
@@ -9,27 +9,31 @@ import Header from "./components/Header";
 
 function App() {
   const [jobs, setJobs] = useState(data);
+  const [filteredJobs, setFilteredJobs] = useState(data);
   const [showInput, setShowInput] = useState(false);
-  const [inputOptions, setInputOptions] = useState([]);
+  const [inputOptions, setInputOptions] = useState<string[]>([]);
 
+  // Handle showing the input
   const handleShowInput = () => {
     setShowInput(true);
   };
 
+  // Add input options when a Tablet is clicked
   const handleInputOptions = (option: string) => {
     // const inputValues: string[] = [...inputOptions, option];
     const inputValues: string[] = !inputOptions.includes(option)
       ? [...inputOptions, option]
       : [...inputOptions];
-    console.log(inputValues);
     setInputOptions(inputValues);
   };
 
+  // Clear all input options
   const handleClearInput = () => {
     setInputOptions([]);
     setShowInput(false);
   };
 
+  // Remove a specific option
   const handleRemoveOption = (text: string) => {
     const updatedInputValues = inputOptions.filter((option) => option !== text);
     setInputOptions(updatedInputValues);
@@ -39,6 +43,18 @@ function App() {
       setShowInput(false);
     }
   };
+
+  useEffect(() => {
+    if (inputOptions.length > 0) {
+      const filteredJob = jobs.filter((job) => {
+        const jobTags = [job.role, job.level, ...job.languages, ...job.tools];
+        return inputOptions.every((option) => jobTags.includes(option));
+      });
+      setFilteredJobs(filteredJob);
+    } else {
+      setFilteredJobs(jobs);
+    }
+  }, [inputOptions]);
 
   return (
     <div className="bg-backgroud">
@@ -51,7 +67,7 @@ function App() {
             handleRemoveOption={handleRemoveOption}
           />
         )}
-        {jobs.map((job) => (
+        {filteredJobs.map((job) => (
           <JobCard
             key={job.id}
             job={job}
