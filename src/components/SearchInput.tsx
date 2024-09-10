@@ -1,23 +1,34 @@
+import SearchOption from "./SearchOption";
+
 interface SearchInputProps {
   inputOptions: string[];
   handleClearInput: () => void;
+  handleRemoveOption: (option: string) => void;
 }
 
-function SearchInput({ inputOptions, handleClearInput }: SearchInputProps) {
+function SearchInput({
+  inputOptions,
+  handleClearInput,
+  handleRemoveOption,
+}: SearchInputProps) {
   return (
-    <>
-      <input
-        className="w-full min-h-16 absolute top-[-80px] rounded-md"
-        value={inputOptions}
-        onChange={() => {}}
-      />
+    <div className="flex items-center bg-white shadow-md rounded-md p-4 w-full absolute top-[-80px]">
+      <div className="flex flex-wrap gap-2">
+        {inputOptions.map((option, index) => (
+          <SearchOption
+            key={index}
+            option={option}
+            onRemove={() => handleRemoveOption(option)}
+          />
+        ))}
+      </div>
       <button
-        className="absolute top-[-60px] right-4"
+        className="ml-auto text-text font-bold hover:text-primary hover:underline"
         onClick={handleClearInput}
       >
-        clear
+        Clear
       </button>
-    </>
+    </div>
   );
 }
 

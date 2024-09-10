@@ -42,6 +42,7 @@ function App() {
           <JobCard
             key={job.id}
             job={job}
+            showInput={showInput}
             handleShowInput={handleShowInput}
             handleInputOptions={handleInputOptions}
           />
