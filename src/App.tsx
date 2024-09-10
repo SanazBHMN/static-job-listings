@@ -54,7 +54,7 @@ function App() {
     } else {
       setFilteredJobs(jobs);
     }
-  }, [inputOptions]);
+  }, [inputOptions, jobs]);
 
   return (
     <div className="bg-backgroud">
