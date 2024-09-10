@@ -30,6 +30,16 @@ function App() {
     setShowInput(false);
   };
 
+  const handleRemoveOption = (text: string) => {
+    const updatedInputValues = inputOptions.filter((option) => option !== text);
+    setInputOptions(updatedInputValues);
+
+    // Hide the input when there are no values
+    if (updatedInputValues.length === 0) {
+      setShowInput(false);
+    }
+  };
+
   return (
     <div className="bg-backgroud">
       <Header />
@@ -38,6 +48,7 @@ function App() {
           <SearchInput
             inputOptions={inputOptions}
             handleClearInput={handleClearInput}
+            handleRemoveOption={handleRemoveOption}
           />
         )}
         {jobs.map((job) => (
