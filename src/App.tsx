@@ -17,8 +17,10 @@ function App() {
   };
 
   const handleInputOptions = (option: string) => {
-    console.log(option);
-    const inputValues: string[] = [...inputOptions, option];
+    // const inputValues: string[] = [...inputOptions, option];
+    const inputValues: string[] = !inputOptions.includes(option)
+      ? [...inputOptions, option]
+      : [...inputOptions];
     console.log(inputValues);
     setInputOptions(inputValues);
   };
