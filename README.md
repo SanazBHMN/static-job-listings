@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+# Job Filtering App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **React job filtering application** - a challenge by [frontendmentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt) where users can filter job listings based on various criteria such as role, level and skills (like languages and tools). The app displays available jobs and allows users to filter them by clicking on filter tags. The UI is styled using **Tailwind CSS** and features a responsive, modern design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ### Job Listings
 
-## Expanding the ESLint configuration
+  View job opportunities with details such as role, level, contract type, and required skills
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- ### Dynamic Filtering
 
-- Configure the top-level `parserOptions` property like this:
+  Filter jobs by selecting tags (e.g, Frontend, JavaScript, CSS). Only jobs matching all selected criteria are displayed
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- ### Interactive Search
+
+  Filter options appear in an interactive search bar at the top of the page
+
+- ### Responsive Design
+
+  The UI is fully responsive, ensuring a seamless experience on all device sizes
+
+## Technologies Used
+
+### React
+
+### TypeScript
+
+### Tailwind CSS
+
+### Vite
+
+### JSON Data
+
+The job listings are sourced from a static JSON file (`data.json`)
+
+# Installation
+
+## Prerequisites
+
+Before you begin, ensure you have installed:
+
+- [Node.js](https://nodejs.org/en)
+
+- npm (as the package manager)
+
+## Steps
+
+1. ### Clone the repository:
+
+```
+git clone https://github.com/SanazBHMN/static-job-listings
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. ### Navigate to the project directly:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd static-job-listings
+```
+
+3. ### Install dependencies:
+
+```
+npm install
+```
+
+4. ### Start the development server:
+
+```
+npm run dev
+```
+
+# Usage
+
+1. ### Filtering Jobs:
+
+- Click on any of the job tags (like `Frontend`, `CSS`, or `Senior`) to add them to the filter.
+
+- As you add tags, the job listings will dynamically filter to match the selected criteria
+
+- You can remove tags by clicking the 'X' icon next to each tag in the filter bar.
+
+2. ### Clear Filters:
+
+- You can cleaar all filters by clicking the `Clear` button in the search input section, and all job listings will reappear.
