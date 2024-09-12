@@ -8,6 +8,7 @@ import data from "./data.json";
 import Header from "./components/Header";
 
 function App() {
+  // @ts-ignore
   const [jobs, setJobs] = useState(data);
   const [filteredJobs, setFilteredJobs] = useState(data);
   const [showInput, setShowInput] = useState(false);
