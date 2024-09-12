@@ -1,4 +1,4 @@
-import iconRemove from "../assets/images/icon-remove.svg";
+import iconRemove from "/assets/images/icon-remove.svg";
 
 interface SearchOptionProps {
   option: string;

@@ -14,8 +14,8 @@ export default {
         darkText: "hsl(180, 14%, 20%)",
       },
       backgroundImage: {
-        headerMobile: "url(./src/assets/images/bg-header-mobile.svg)",
-        headerDesktop: "url(./src/assets/images/bg-header-desktop.svg)",
+        headerMobile: "url(/assets/images/bg-header-mobile.svg)",
+        headerDesktop: "url(/assets/images/bg-header-desktop.svg)",
       },
     },
   },
