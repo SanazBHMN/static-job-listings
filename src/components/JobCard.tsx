@@ -24,7 +24,11 @@ interface JobCardProps {
 
 function JobCard({ job, handleShowInput, handleInputOptions }: JobCardProps) {
   return (
-    <div className="w-full bg-white rounded-md my-12 shadow-2xl shadow-filterTablets">
+    <div
+      className={`w-full bg-white rounded-md my-12 shadow-2xl shadow-filterTablets ${
+        job.new && job.featured ? "border-l-4 border-primary" : ""
+      }`}
+    >
       <section className="p-6 relative md:static md:flex md:items-center gap-5">
         <Logo logo={job.logo} />
         <div className="mt-4 md:w-full">
@@ -36,7 +40,7 @@ function JobCard({ job, handleShowInput, handleInputOptions }: JobCardProps) {
           </div>
           <div className="flex flex-col items-start sm:flex-row sm:justify-between text-text">
             <div className="w-full my-3 pb-3 border-b-2 sm:border-none md:my-1">
-              <h3 className="my-3 font-semibold text-darkText md:my-1">
+              <h3 className="my-3 font-semibold text-darkText md:my-1 cursor-pointer hover:text-primary">
                 {job.position}
               </h3>
               <span>{job.postedAt} &#x2022;</span>
