@@ -57,26 +57,39 @@ function App() {
   }, [inputOptions, jobs]);
 
   return (
-    <div className="bg-backgroud min-h-screen">
-      <Header />
-      <main className="w-11/12 m-auto sm:mt-20">
-        {showInput && (
-          <SearchInput
-            inputOptions={inputOptions}
-            handleClearInput={handleClearInput}
-            handleRemoveOption={handleRemoveOption}
-          />
-        )}
-        {filteredJobs.map((job) => (
-          <JobCard
-            key={job.id}
-            job={job}
-            handleShowInput={handleShowInput}
-            handleInputOptions={handleInputOptions}
-          />
-        ))}
-      </main>
-    </div>
+    <>
+      <div className="bg-backgroud min-h-screen">
+        <Header />
+        <main className="w-11/12 m-auto sm:mt-20">
+          {showInput && (
+            <SearchInput
+              inputOptions={inputOptions}
+              handleClearInput={handleClearInput}
+              handleRemoveOption={handleRemoveOption}
+            />
+          )}
+          {filteredJobs.map((job) => (
+            <JobCard
+              key={job.id}
+              job={job}
+              handleShowInput={handleShowInput}
+              handleInputOptions={handleInputOptions}
+            />
+          ))}
+        </main>
+      </div>
+      <div className="attribution text-center">
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a href="https://github.com/SanazBHMN/static-job-listings">
+          Sanaz Bahmani
+        </a>
+        .
+      </div>
+    </>
   );
 }
 
