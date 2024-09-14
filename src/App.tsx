@@ -60,7 +60,7 @@ function App() {
     <>
       <div className="bg-backgroud min-h-screen">
         <Header />
-        <main className="w-11/12 m-auto sm:mt-20">
+        <main className="w-11/12 m-auto pb-3 sm:mt-20 md:max-w-[1100px]">
           {showInput && (
             <SearchInput
               inputOptions={inputOptions}
